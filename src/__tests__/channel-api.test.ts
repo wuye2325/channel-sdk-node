@@ -296,6 +296,7 @@ describe('card.action dedup key includes button identity', () => {
 
   function buildRawCardAction(value: unknown, messageId = 'om_card1'): unknown {
     return {
+      token: `${messageId}:${JSON.stringify(value)}`,
       schema: '2.0',
       event_type: 'card.action.trigger',
       context: {
@@ -356,6 +357,7 @@ describe('cardAction handler return value flows back out of the dispatcher', () 
 
   function buildRawCardAction(value: unknown, messageId: string): unknown {
     return {
+      token: `${messageId}:${JSON.stringify(value)}`,
       schema: '2.0',
       event_type: 'card.action.trigger',
       context: {
